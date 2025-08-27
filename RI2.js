@@ -28,20 +28,38 @@ function Cliente(nome, telefoneCelular, email, endereco) {
        return this.nome = novoNome
     }
 
-    setTelefoneCelular = (novoDDD, novoTelefone) => {
-       return this.telefoneCelular = new TelefoneCelular(novoDDD, novoTelefone)
+    setTelefoneCelular = (novoTelefone) => {
+       return this.telefoneCelular = novoTelefone
     }
     setEmail = (novoEmail) => {
        return this.email = novoEmail
     }
     setNome = (novoEndereco) => {
-       return this.nome = novoNome
+       return this.endereco = novoEndereco
     }
 }
 
 function TelefoneCelular(ddd, numero) {
     this.ddd = ddd
     this.numero = numero
+
+    // getters
+    getDDD = () => {
+        return this.ddd
+    }
+
+    getNumero = () => {
+        return this.numero
+    }
+
+    // setters
+    setDDD = (novoDDD) => {
+        return this.ddd = novoDDD
+    }
+
+    setNumero = (novoNumero) => {
+        return this.numero = novoNumero
+    }
 }
 
 function Endereco(estado, cidade, rua, numero) {
@@ -49,5 +67,36 @@ function Endereco(estado, cidade, rua, numero) {
     this.cidade = cidade
     this.rua = rua
     this.numero = numero
+
+    // getters
+    getEstado = () => {
+        return this.estado
+    }
+    getCidade = () => {
+        return this.cidade
+    }
+    getRua = () => {
+        return this.rua
+    }
+    getNumero = () => {
+        return this.numero
+    }
+
+    // setters
+    setEstado = (novoEstado) => {
+        return this.estado = novoEstado
+    }
+
+    setCidade = (novoCidade) => {
+        return this.cidade = novoCidade
+    }
+
+    setRua = (novoRua) => {
+        return this.rua = novoRua
+    }
+
+    setNumero = (novoNumero) => {
+        return this.numero = novoNumero
+    }
 }
 
