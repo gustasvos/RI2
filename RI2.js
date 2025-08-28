@@ -185,10 +185,37 @@ function Endereco(estado, cidade, rua, numero) {
 }
 
 
-let telefone = new TelefoneCelular('12', '999999999')
-let endereco = new Endereco('SP', 'São José dos Campos', 'Rua 10', '54')
-let cliente = new Cliente('Gustavo', telefone, 'gustavo@email.com', endereco)
+let telefone1 = new TelefoneCelular('11', '999999999')
+let telefone2 = new TelefoneCelular('12', '888888888')
+let telefone3 = new TelefoneCelular('13', '777777777')
+let telefone4 = new TelefoneCelular('14', '666666666')
 
-console.log(cliente.getInfo())
-console.log(telefone.getTelefone())
-console.log(endereco.getEndereco())
+let endereco1 = new Endereco('SP', 'São Paulo', 'Rua 10', '54')
+let endereco2 = new Endereco('SP', 'São José dos Campos', 'Rua 11', '821')
+let endereco3 = new Endereco('SP', 'Santos', 'Rua 9', '86')
+let endereco4 = new Endereco('SP', 'Marilia', 'Rua 2', '543')
+
+let cliente1 = new Cliente('Gustavo', telefone1, 'gustavo@email.com', endereco1)
+let cliente2 = new Cliente('Ana', telefone2, 'ana@email.com', endereco2)
+let cliente3 = new Cliente('Gabriel', telefone3, 'gabriel@email.com', endereco3)
+let cliente4 = new Cliente('João', telefone4, 'joao@email.com', endereco4)
+
+// exemplos de saída das descrições de cada objeto e seus atributos
+console.log(cliente1.getInfo())
+console.log(telefone1.getTelefone())
+console.log(endereco1.getEndereco())
+
+
+// ordenar clientes por nome
+const ordena = (c) => {
+    c.sort((a, b) => {
+        if (a.getNomeUpper() < b.getNomeUpper()) return -1
+        if (a.getNomeUpper() < b.getNomeUpper()) return 1
+        return 0
+    })
+    return c.map(cliente => cliente.getNome())
+}
+
+
+let clientes = [cliente1, cliente2, cliente3, cliente4]
+console.log(ordena(clientes))
