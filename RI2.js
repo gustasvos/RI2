@@ -6,65 +6,73 @@ function Cliente(nome, telefoneCelular, email, endereco) {
 
     // getters
 
-    getNome = () => {
+    this.getNome = () => {
         return this.nome
     }
 
-    getTelefoneCelular = () => {
+    this.getTelefoneCelular = () => {
         return this.telefoneCelular
     }
 
-    getEmail = () => {
+    this.getEmail = () => {
         return this.email
     }
 
-    getEndereco = () => {
+    this.getEndereco = () => {
         return this.endereco
     }
 
     // setters
 
-    setNome = (novoNome) => {
+    this.setNome = (novoNome) => {
         return this.nome = novoNome
     }
 
-    setTelefoneCelular = (novoTelefone) => {
+    this.setTelefoneCelular = (novoTelefone) => {
         return this.telefoneCelular = novoTelefone
     }
-    setEmail = (novoEmail) => {
+    this.setEmail = (novoEmail) => {
         return this.email = novoEmail
     }
-    setNome = (novoEndereco) => {
+    this.setNome = (novoEndereco) => {
         return this.endereco = novoEndereco
     }
 
     // atributos em letra maiscula
-    getNomeUpper = () => {
+    this.getNomeUpper = () => {
         return this.nome.toUpperCase()
     }
-    getTelefoneCelularUpper = () => {
+    this.getTelefoneCelularUpper = () => {
         return this.telefoneCelular.toUpperCase()
     }
-    getEmailUpper = () => {
+    this.getEmailUpper = () => {
         return this.email.toUpperCase()
     }
-    getEnderecoUpper = () => {
+    this.getEnderecoUpper = () => {
         return this.endereco.toUpperCase()
     }
 
     // atributos em letra minuscula
-    getNomeLower = () => {
+    this.getNomeLower = () => {
         return this.nome.toLowerCase()
     }
-    getTelefoneCelularLower = () => {
+    this.getTelefoneCelularLower = () => {
         return this.telefoneCelular.toLowerCase()
     }
-    getEmailLower = () => {
+    this.getEmailLower = () => {
         return this.email.toLowerCase()
     }
-    getEnderecoLower = () => {
+    this.getEnderecoLower = () => {
         return this.endereco.toLowerCase()
     }
+
+    // saída formatada
+    this.getInfo = () => {
+        return('-----------------\n'+
+            'Informações do Cliente:\n'+
+            this.nome +
+            '\n-----------------')
+        }
 }
 
 function TelefoneCelular(ddd, numero) {
@@ -72,21 +80,30 @@ function TelefoneCelular(ddd, numero) {
     this.numero = numero
 
     // getters
-    getDDD = () => {
+    this.getDDD = () => {
         return this.ddd
     }
 
-    getNumero = () => {
+    this.getNumero = () => {
         return this.numero
     }
 
     // setters
-    setDDD = (novoDDD) => {
+    this.setDDD = (novoDDD) => {
         return this.ddd = novoDDD
     }
 
-    setNumero = (novoNumero) => {
+    this.setNumero = (novoNumero) => {
         return this.numero = novoNumero
+    }
+
+    // saida formatada telefone
+    this.getTelefone = () => {
+        return('-----------------\n'+
+            'Telefone:\n'+
+            'DDD: '+ this.ddd +
+            '\nNúmero: '+ this.numero + 
+            '\n-----------------')
     }
 }
 
@@ -97,61 +114,81 @@ function Endereco(estado, cidade, rua, numero) {
     this.numero = numero
 
     // getters
-    getEstado = () => {
+    this.getEstado = () => {
         return this.estado
     }
-    getCidade = () => {
+    this.getCidade = () => {
         return this.cidade
     }
-    getRua = () => {
+    this.getRua = () => {
         return this.rua
     }
-    getNumero = () => {
+    this.getNumero = () => {
         return this.numero
     }
 
     // setters
-    setEstado = (novoEstado) => {
+    this.setEstado = (novoEstado) => {
         return this.estado = novoEstado
     }
 
-    setCidade = (novoCidade) => {
+    this.setCidade = (novoCidade) => {
         return this.cidade = novoCidade
     }
 
-    setRua = (novoRua) => {
+    this.setRua = (novoRua) => {
         return this.rua = novoRua
     }
 
-    setNumero = (novoNumero) => {
+    this.setNumero = (novoNumero) => {
         return this.numero = novoNumero
     }
 
     // atributos em letra maiscula
-    getEstadoUpper = () => {
+    this.getEstadoUpper = () => {
         return this.estado.toUpperCase()
     }
 
-    getCidadeUpper = () => {
+    this.getCidadeUpper = () => {
         return this.cidade.toUpperCase()
     }
 
-    getRuaUpper = () => {
+    this.getRuaUpper = () => {
         return this.rua.toUpperCase()
     }
 
     // atributos em letra minuscula
-    getEstadoLower = () => {
+    this.getEstadoLower = () => {
         return this.estado.toLowerCase()
     }
 
-    getCidadeLower = () => {
+    this.getCidadeLower = () => {
         return this.cidade.toLowerCase()
     }
 
-    getRuaLower = () => {
+    this.getRuaLower = () => {
         return this.rua.toLowerCase()
+    }
+
+
+    // saída formatada endereco
+    this.getEndereco = () => {
+        return ('-----------------\n'+
+            'Endereço:\n'+
+            'Rua: ' + this.rua +
+            '\nNúmero: ' + this.numero +
+            '\nCidade: ' + this.cidade +
+            '\nEstado: ' + this.estado +
+            '\n-----------------')
     }
 
 }
 
+
+let telefone = new TelefoneCelular('12', '999999999')
+let endereco = new Endereco('SP', 'São José dos Campos', 'Rua 10', '54')
+let cliente = new Cliente('Gustavo', telefone, 'gustavo@email.com', endereco)
+
+console.log(cliente.getInfo())
+console.log(telefone.getTelefone())
+console.log(endereco.getEndereco())
